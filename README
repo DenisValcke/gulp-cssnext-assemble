@@ -1,0 +1,67 @@
+** Requires node.js version 6.0.0 and up **
+
+This is a Gulp set-up with the following features:
+- PostCSS/CSSNext
+- Javascript merge & uglify
+- Assemble with Handlebars templates
+- Browsersync
+
+===
+===
+
+Note that it is favorable to have the following folder structure in order for everything to compile in a good manner.
+-project-folder
+  - app
+    - assets
+      - fonts
+      - img
+    - css
+      main.css (with imports)
+      - subfolder
+        - partial.css
+        - ...
+      - other subfolders
+    - js
+      - main.js
+      - vendors
+        - some-vendor-file.js
+        - ...
+    - templates
+      - layouts
+        - some-layout.hbs
+        - ...
+      - partials
+        - some-partial.hbs
+        - ...
+    - index.hbs
+    - ...
+  - Gulpfile.js
+  - package.json
+
+===
+===
+
+If you then move to the project folder in terminal and run 'gulp', everything will compile into a dist folder like so:
+- dist
+  - app
+    - assets
+      - fonts
+      - img
+    - css
+      - main.css
+    - js
+      - main.js
+      - vendor.jss
+    - index.html
+    - ...
+
+===
+===
+
+Browsersync will then run from the app in the distfolder and every change made will result in a recompile & refresh of the browser.
+
+===
+===
+
+Note that if the homepage of your project is not called 'index.html', you need to change the following setting in the browsersync task in the Gulpfile:
+>> index: 'your-initial-page.html'
